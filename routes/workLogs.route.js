@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const WorkLog = require('../models/WorkLog.model');
 
-// บันทึกผลการปฏิบัติงานประจำวัน
+
 router.post('/', async (req, res) => {
   try {
     const newWorkLog = new WorkLog(req.body);
@@ -13,7 +13,6 @@ router.post('/', async (req, res) => {
   }
 });
 
-// แสดงรายการที่บันทึก และค้นหาตามวันที่ดำเนินการ
 router.get('/', async (req, res) => {
   try {
     const { date } = req.query;
@@ -28,7 +27,6 @@ router.get('/', async (req, res) => {
   }
 });
 
-// แสดงรายงานผลการปฏิบัติงานประจำวัน
 router.get('/daily-report', async (req, res) => {
   try {
     const { date } = req.query;
@@ -43,7 +41,7 @@ router.get('/daily-report', async (req, res) => {
   }
 });
 
-// แสดงรายงานสรุปจำนวนสถานะการทำงานรายเดือน
+
 router.get('/monthly-report', async (req, res) => {
   try {
     const { month } = req.query;
@@ -69,7 +67,7 @@ router.get('/monthly-report', async (req, res) => {
   }
 });
 
-// ลบข้อมูล
+
 router.delete('/', async (req, res) => {
   try {
     await WorkLog.findByIdAndDelete(req.query.id);
@@ -79,7 +77,7 @@ router.delete('/', async (req, res) => {
   }
 });
 
-// ปรับปรุงข้อมูล
+
 router.put('/', async (req, res) => {
   try {
 

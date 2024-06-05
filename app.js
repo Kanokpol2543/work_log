@@ -5,13 +5,10 @@ const workLog = require('./routes/workLogs.route')
 
 const app = express();
 
-// Connect Database
 connectDB();
 
-// Init Middleware
 app.use(bodyParser.json());
 
-// Define Routes
 app.use('/worklog', workLog);
 
 const PORT =  3000;
