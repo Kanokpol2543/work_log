@@ -83,7 +83,7 @@ router.put('/', async (req, res) => {
 
     const workLog = await WorkLog.findByIdAndUpdate(
       req.body._id,
-      { ...req.body, updatedAt: new Date() },
+      { ...req.body, updatedAt: new Date(Date.now() + (7 * 60 * 60 * 1000)) },
       { new: true }
     );
     res.json(workLog);
